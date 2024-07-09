@@ -10,6 +10,7 @@ SNOWFLAKE_USER = os.getenv('SNOWFLAKE_USER')
 SNOWFLAKE_PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
 SNOWFLAKE_ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
 SNOWFLAKE_WAREHOUSE = os.getenv('SNOWFLAKE_WAREHOUSE')
+SNOWFLAKE_SCHEMA = os.getenv('SNOWFLAKE_SCHEMA')
 SNOWFLAKE_ROLE = os.getenv('SNOWFLAKE_ROLE')
 
 # Function to connect to Snowflake
@@ -19,18 +20,13 @@ def connect_to_snowflake():
             user=SNOWFLAKE_USER,
             password=SNOWFLAKE_PASSWORD,
             account=SNOWFLAKE_ACCOUNT,
-            database="FINANCIAL__ECONOMIC_ESSENTIALS",
+            database='SNOWFLAKE_SAMPLE_DATA',
             warehouse=SNOWFLAKE_WAREHOUSE,
+            schema = 'TPCH_SF1',
             role=SNOWFLAKE_ROLE
             
         )
-        cur = conn.cursor()
-        # try: 
-        #     cur.execute("Select * from FINANCIAL__ECONOMIC_ESSENTIALS;")
-        #     cur.execute("USE ROLE {}".format(SNOWFLAKE_ROLE))
-        # finally:
-        #     cur.close()
-        conn.close()
+        return conn
     except snowflake.connector.errors.Error as e:
         st.error(f"Error connecting to Snowflake: {str(e)}")
         return None
@@ -38,6 +34,7 @@ def connect_to_snowflake():
 # Function to execute a query in Snowflake
 def execute_snowflake_query(query):
     conn = connect_to_snowflake()
+    print (conn)
     if conn:
         try:
             cur = conn.cursor()
@@ -77,13 +74,13 @@ submit = st.button("Submit")
 
 if submit:
     prompt = """
-    You are an expert in converting English questions to SQL queries! The SQL database is named FINANCIAL__ECONOMIC_ESSENTIALS and has the following columns: NAME, CLASS, SECTION.
+    You are an expert in converting English questions to SQL queries! The SQL database is named CUSTOMER and has the following columns: C_CUSTKEY C_NAME C_ADDRESS C_NATIONKEY C_PHONE C_ACCTBAL C_MKTSEGMENT C_COMMENT.
 
     Example 1: How many entries of records are present?
-    SQL command: SELECT COUNT(*) FROM FINANCIAL__ECONOMIC_ESSENTIALS;
+    SQL command: SELECT COUNT(*) FROM CUSTOMER;
 
     Example 2: What is the name of the student who has scored the highest marks?
-    SQL command: SELECT NAME FROM STUDENT WHERE MARKS = (SELECT MAX(MARKS) FROM FINANCIAL__ECONOMIC_ESSENTIALS);
+    SQL command: SELECT NAME FROM STUDENT WHERE MARKS = (SELECT MAX(MARKS) FROM CUSTOMER);
     
     The SQL code should not have ``` at the beginning or end and should not contain the word 'sql' in the output.
     """
