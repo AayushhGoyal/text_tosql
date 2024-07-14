@@ -60,7 +60,7 @@ GOOGLE_API_KEY="AIzaSyDey7S32FUaJ-4OYuV7RJzLD7lbKwVf8iA"
 
 Here's a demo video
 
-https://drive.google.com/file/d/102hOEz_h3VX4CFotcFni9rHZw88wOq9b/view?usp=sharing
+https://drive.google.com/file/d/18a7MMk8B0s_T6yMrWqmnPsxWTpJUeKu2/view?usp=sharing
 
 
 In this table you can access
@@ -71,4 +71,65 @@ In this table you can access
  - C_PHONE
  - C_ACCTBAL
  - C_MKTSEGMENT
- - C_COMMEN
+ - C_COMMENT
+ - 
+ - L_ORDERKEY
+ - L_PARTKEY
+ - L_SUPPKEY
+ - L_LINENUMBER
+ - L_QUANTITY
+ - L_EXTENDEDPRICE
+ - L_DISCOUNT
+ - L_TAX
+ - L_RETURNFLAG
+ - L_LINESTATUS
+ - L_SHIPDATE
+ - L_COMMITDATE
+ - L_RECEIPTDATE
+ - L_SHIPINSTRUCT
+ - L_SHIPMODE
+ - L_COMMENT
+ - 
+ - N_NATIONKEY
+ - N_NAME
+ - N_REGIONKEY
+ - N_COMMENT
+ - 
+ - O_ORDERKEY
+ - O_CUSTKEY
+ - O_ORDERSTATUS
+ - O_TOTALPRICE
+ - O_ORDERDATE
+ - O_ORDERPRIORITY
+ - O_CLERK
+ - O_SHIPPRIORITY
+ - O_COMMENT
+ - 
+ - P_PARTKEY
+ - P_NAME
+ - P_MFGR
+ - P_BRAND
+ - P_TYPE
+ - P_SIZE
+ - P_CONTAINER
+ - P_RETAILPRICE
+ - P_COMMENT
+ - 
+ - PS_PARTKEY
+ - PS_SUPPKEY
+ - PS_AVAILQTY
+ - PS_SUPPLYCOST
+ - PS_COMMENT
+ - 
+ - R_REGIONKEY
+ - R_NAME
+ - R_COMMENT
+ - 
+ - 
+ - S_SUPPKEY
+ - S_NAME
+ - S_ADDRESS
+ - S_NATIONKEY
+ - S_PHONE
+ - S_ACCTBAL
+ - S_COMMENT]

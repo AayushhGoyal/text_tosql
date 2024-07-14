@@ -3,3 +3,6 @@ google-generativeai
 python-dotenv
 snowflake-connector-python
 sqlalchemy
+plotly
+pandas
+numpy
